@@ -1,0 +1,29 @@
+﻿@model Core.Dominio.Documento
+
+@{
+    ViewBag.Title = "CrearArea";
+}
+
+<h2>CrearArea</h2>
+
+<div class="form-group">
+    @Html.Label("Nombre:")
+    @Html.EditorFor(model => model.nombreDocumento, new { htmlAttributes = new { @class = "form-control" } })
+    <small id="emailHelp" class="form-text text-muted">@Html.ValidationMessageFor(model => model.nombreDocumento)</small>
+</div>
+
+<div class="form-group">
+    @Html.Label("Descripcion:")
+    @Html.EditorFor(model => model.descripccionDocumento, new { htmlAttributes = new { @class = "form-control" } })
+    <small id="emailHelp" class="form-text text-muted">@Html.ValidationMessageFor(model => model.descripccionDocumento)</small>
+</div>
+
+<div class="form-group">
+    @Html.Label("Vigencia:")
+    @Html.EditorFor(model => model.vigencia, new { htmlAttributes = new { @class = "form-control" } })
+    <small id="emailHelp" class="form-text text-muted">@Html.ValidationMessageFor(model => model.vigencia)</small>
+</div>
+
+<input type="file" value="Seleccione un archivo" />
+
+<input type="submit" value="Guardar" />
