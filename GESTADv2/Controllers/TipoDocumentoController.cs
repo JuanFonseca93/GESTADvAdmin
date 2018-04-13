@@ -98,7 +98,7 @@ namespace GESTADv2.Controllers
             unitOfWork = new UnitOfWork(_context);
             if (ModelState.IsValid)
             {
-                
+                obj.ubicacion = "Missing";
                 unitOfWork.TipoDocumento.Add(obj);
                 unitOfWork.Complete();
                 return RedirectToAction("TipoDocumento");
