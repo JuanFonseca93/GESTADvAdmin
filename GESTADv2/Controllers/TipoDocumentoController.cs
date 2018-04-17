@@ -270,11 +270,11 @@ namespace GESTADv2.Controllers
             var usuario = unitOfWork.TipoDocumento.Get(idArea);
             ViewBag.Nombre = usuario.nombreTipo;
             ViewBag.id = usuario.idTipo;
-            ViewBag.Permisos = unitOfWork.Nivel1.GetAll();
-            var usu = from p in _context.Nivel1 where p.TipoDoc.Any(u => u.idTipo == idArea) select p;
+            ViewBag.Permisos = unitOfWork.Nivel4.GetAll();
+            var usu = from p in _context.Nivel4 where p.TipoDoc.Any(u => u.idTipo == idArea) select p;
 
 
-            List<Nivel1> permisosUsuario = new List<Nivel1>();
+            List<Nivel4> permisosUsuario = new List<Nivel4>();
             foreach (var perusu in usu)
             {
                 permisosUsuario.Add(perusu);
@@ -282,35 +282,35 @@ namespace GESTADv2.Controllers
 
             ViewBag.PermisosUsu = permisosUsuario;
             unitOfWork = new UnitOfWork(_context);
-            List<Nivel1> permiso = new List<Nivel1>();
+            List<Nivel4> permiso = new List<Nivel4>();
             if (obj5 == null)
             {
-                foreach (var nusuario in unitOfWork.Nivel1.GetAll())
+                foreach (var nusuario in unitOfWork.Nivel4.GetAll())
                 {
                     permiso.Add(nusuario);
                 }
             }
             else
             {
-                permiso = TempData["permiso"] as List<Nivel1>;
+                permiso = TempData["permiso"] as List<Nivel4>;
             }
             int tamanoPagina = 5;
             int numeroPagina = (pagina ?? 1);
             return View(permiso.ToPagedList(numeroPagina, tamanoPagina));
         }
 
-        public ActionResult AsignarRutasN5(int idArea, List<Nivel1> obj5, int? pagina)
+        public ActionResult AsignarRutasN5(int idArea, List<Nivel5> obj5, int? pagina)
         {
             _context = new BDContext();
             unitOfWork = new UnitOfWork(_context);
             var usuario = unitOfWork.TipoDocumento.Get(idArea);
             ViewBag.Nombre = usuario.nombreTipo;
             ViewBag.id = usuario.idTipo;
-            ViewBag.Permisos = unitOfWork.Nivel1.GetAll();
-            var usu = from p in _context.Nivel1 where p.TipoDoc.Any(u => u.idTipo == idArea) select p;
+            ViewBag.Permisos = unitOfWork.Nivel5.GetAll();
+            var usu = from p in _context.Nivel5 where p.TipoDoc.Any(u => u.idTipo == idArea) select p;
 
 
-            List<Nivel1> permisosUsuario = new List<Nivel1>();
+            List<Nivel5> permisosUsuario = new List<Nivel5>();
             foreach (var perusu in usu)
             {
                 permisosUsuario.Add(perusu);
@@ -318,17 +318,17 @@ namespace GESTADv2.Controllers
 
             ViewBag.PermisosUsu = permisosUsuario;
             unitOfWork = new UnitOfWork(_context);
-            List<Nivel1> permiso = new List<Nivel1>();
+            List<Nivel5> permiso = new List<Nivel5>();
             if (obj5 == null)
             {
-                foreach (var nusuario in unitOfWork.Nivel1.GetAll())
+                foreach (var nusuario in unitOfWork.Nivel5.GetAll())
                 {
                     permiso.Add(nusuario);
                 }
             }
             else
             {
-                permiso = TempData["permiso"] as List<Nivel1>;
+                permiso = TempData["permiso"] as List<Nivel5>;
             }
             int tamanoPagina = 5;
             int numeroPagina = (pagina ?? 1);

@@ -237,7 +237,7 @@ namespace GESTADv2.Controllers
                     const string fromPassword = "Gestad00";
                     const string subject = "Estatus de Usuario";
 
-                    string mensaje = "Felicidades, Apartir de ahora usted puede iniciar secion en el sistema GESTAD con el correo " + obj.correoUsuario + " y la contraseña seleccionada, Cualquier duda favor de responder a este correo.";
+                    string mensaje = "Felicidades, Apartir de ahora usted puede iniciar secion en el sistema GESTAD con el correo " + Uppd.correoUsuario + " y la contraseña seleccionada, Cualquier duda favor de responder a este correo.";
 
 
                     string body = mensaje;

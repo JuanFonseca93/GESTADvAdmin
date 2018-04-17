@@ -23,7 +23,7 @@ namespace GESTADv2.Controllers
             List<Documento> area = new List<Documento>();
             if (obj == null)
             {
-                foreach (var nusuario in _context.Documento.Where(d => d.estadoDocumento == 1))
+                foreach (var nusuario in _context.Documento.Include("Usuario").Where(d => d.estadoDocumento == 1))
                 {
                     area.Add(nusuario);
                 }
@@ -45,7 +45,7 @@ namespace GESTADv2.Controllers
             List<Documento> area = new List<Documento>();
             if (obj == null)
             {
-                foreach (var nusuario in _context.Documento.Where(d => d.estadoDocumento == 2))
+                foreach (var nusuario in _context.Documento.Include("Usuario").Where(d => d.estadoDocumento == 2))
                 {
                     area.Add(nusuario);
                 }
@@ -67,7 +67,7 @@ namespace GESTADv2.Controllers
             List<Documento> area = new List<Documento>();
             if (obj == null)
             {
-                foreach (var nusuario in _context.Documento.Where(d => d.estadoDocumento == 3))
+                foreach (var nusuario in _context.Documento.Include("Usuario").Where(d => d.estadoDocumento == 3))
                 {
                     area.Add(nusuario);
                 }
@@ -105,7 +105,7 @@ namespace GESTADv2.Controllers
 
             unitOfWork.Complete();
 
-            Usuario Uppd2 = unitOfWork.Usuarios.Get(obj.idUsuario);
+            Usuario Uppd2 = unitOfWork.Usuarios.Get(Uppd.idUsuario);
             var fromAddress = new MailAddress("gestadutsoe@gmail.com", "GESTAD");
             var toAddress = new MailAddress(Uppd2.correoUsuario, Uppd2.nombreUsuario);
             const string fromPassword = "Gestad00";
@@ -154,7 +154,7 @@ namespace GESTADv2.Controllers
 
             unitOfWork.Complete();
 
-            Usuario Uppd2 = unitOfWork.Usuarios.Get(obj.idUsuario);
+            Usuario Uppd2 = unitOfWork.Usuarios.Get(Uppd.idUsuario);
             var fromAddress = new MailAddress("gestadutsoe@gmail.com", "GESTAD");
             var toAddress = new MailAddress(Uppd2.correoUsuario, Uppd2.nombreUsuario);
             const string fromPassword = "Gestad00";

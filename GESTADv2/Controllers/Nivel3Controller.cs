@@ -105,7 +105,7 @@ namespace GESTADv2.Controllers
                 unitOfWork.Complete();
                 var n2 = unitOfWork.Nivel2.Get(Int32.Parse(obj.nivel2));
                 var n1 = unitOfWork.Nivel1.Get(Int32.Parse(n2.nivel1));
-                string path = Path.Combine(Server.MapPath("~/Gestad"), n1.nombreN, n2.nombreN, obj.nombreN);
+                string path = Path.Combine("C:/Gestad", n1.nombreN, n2.nombreN, obj.nombreN);
                 Directory.CreateDirectory(path);
                 return RedirectToAction("AreaDoc");
             }
@@ -151,7 +151,7 @@ namespace GESTADv2.Controllers
 
                     var n2 = unitOfWork.Nivel2.Get(Int32.Parse(obj.nivel2));
                     var n1 = unitOfWork.Nivel1.Get(Int32.Parse(n2.nivel1));
-                    string path = Path.Combine(Server.MapPath("~/Gestad"), n1.nombreN, n2.nombreN, obj.nombreN);
+                    string path = Path.Combine("C:/Gestad", n1.nombreN, n2.nombreN, obj.nombreN);
                     Directory.CreateDirectory(path);
 
                     return RedirectToAction("AreaDoc");

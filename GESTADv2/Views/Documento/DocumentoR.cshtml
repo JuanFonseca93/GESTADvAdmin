@@ -2,6 +2,7 @@
 @using PagedList.Mvc
 
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
 @{
     ViewBag.Title = "Documento";
 }
@@ -27,7 +28,9 @@
         <tr>
             <th style="color:#ffffff; background:#00003c">#</th>
             <th style="color:#ffffff; background:#00003c">Area</th>
-            <th style="color:#ffffff; background:#00003c">Descripcion</th>
+            <th style="color:#ffffff; background:#00003c">Fecha de Subida</th>
+            <th style="color:#ffffff; background:#00003c">Usuario</th>
+            <th style="color:#ffffff; background:#00003c">Aciones</th>
         </tr>
         @foreach (var Area in Model)
         {
@@ -35,11 +38,18 @@
                 <th scope="row">@Area.idDocumento</th>
                 <td>@Area.nombreDocumento</td>
                 <td>@Area.fechaSubidaDocumento</td>
+                <td>@Area.usuario.nombreUsuario</td>
                 <td>
                     @Html.ActionLink("Aceptar",
                                   "AceptarDocumento",
                                   "Documento",
-                                  new { idUsuario = @Area.idDocumento }, new { @class = "btn btn-primary" }
+                                  new { idDocumento = @Area.idDocumento }, new { @class = "btn btn-primary" }
+                                  )
+
+                    @Html.ActionLink("Rechazar",
+                                  "RechazarDocumento",
+                                  "Documento",
+                                  new { idDocumento = @Area.idDocumento }, new { @class = "btn btn-danger" }
                                   )
                 </td>
             </tr>

@@ -7,14 +7,14 @@
     ViewBag.Title = "TipoDocumento";
 }
 
-<h2>TipoDocumento</h2>
+<h2>Tipo de Documento</h2>
 <br /> <br />
 <div class="btn-pagina-agregar" style="float:right; display: inline-block;">
 
     @using (Html.BeginForm("BuscarTipo", "TipoDocumento", FormMethod.Get))
     {
         <p>
-            Buscar usuario: @Html.TextBox("nombre")
+            Buscar Tipo: @Html.TextBox("nombre")
             <input type="submit" value="Buscar" />
         </p>
     }
@@ -23,7 +23,7 @@
     @using (Html.BeginForm("TipoDocumento", "TipoDocumnto", FormMethod.Get))
     {
         <p>
-            <input type="submit" value="Ver lista" class="btn btn-primary" />
+            <input type="submit" value="Lista" class="btn btn-primary" />
         </p>
     }
 

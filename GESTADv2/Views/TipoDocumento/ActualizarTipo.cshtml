@@ -4,7 +4,7 @@
     ViewBag.Title = "ActualizarTipo";
 }
 
-<h2>ActualizarTipo</h2>
+<h2>Actualizar Tipo de documento</h2>
 
 @using (Html.BeginForm("ActionActualizarTipo", "TipoDocumento", FormMethod.Post))
 {
@@ -12,8 +12,8 @@
 
     <div class="form-group">
         @Html.Label("Area del Tipo:")
-        @Html.DropDownListFor(model => model.idAreaD, new SelectList(ViewBag.Areas, "idAreaD", "nombreAreaD"), new { @class = "form-control" })
-        <small id="emailHelp" class="form-text text-muted">@Html.ValidationMessageFor(model => model.idAreaD)</small>
+        @Html.DropDownListFor(model => model.idTipo, new SelectList(ViewBag.Areas, "idTipo", "nombreTipo"), new { @class = "form-control" })
+        <small id="emailHelp" class="form-text text-muted">@Html.ValidationMessageFor(model => model.idTipo)</small>
     </div>
 
     <h1>ruta del documento se generar automaticamente</h1>

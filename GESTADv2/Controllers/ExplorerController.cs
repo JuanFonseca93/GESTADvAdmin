@@ -18,27 +18,22 @@ namespace GESTADexplorer.Controllers
                 case "Read":
                     return Json(operation.Read(args.Path, args.ExtensionsAllow));
                 case "CreateFolder":
-                    return Json(operation.CreateFolder(args.Path, args.Name));
+                    return RedirectToAction("AreaDoc", "Nivel1");
                 case "Paste":
-                    return Json(operation.Paste(args.LocationFrom, args.LocationTo, args.Names, args.Action, args.CommonFiles));
+                    return null;
                 case "Remove":
-                    return Json(operation.Remove(args.Names, args.Path));
+                    return null;
                 case "Rename":
-                    return Json(operation.Rename(args.Path, args.Name, args.NewName, args.CommonFiles));
+                    return RedirectToAction("Documento", "Documento");
                 case "GetDetails":
-                    return Json(operation.GetDetails(args.Path, args.Names));
+                    return RedirectToAction("Documento", "Documento");
                 case "Download":
-                    operation.Download(args.Path, args.Names);
+                    RedirectToAction("Documento", "Documento");
                     break;
                 case "Upload":
-                    RedirectToAction("Account/Register");
-                    operation.Upload(args.FileUpload, args.Path);
-                    
-                    
-                    break;
+                    return null;
                 case "Search":
-                    return Json(operation.Search(args.Path, args.ExtensionsAllow, args.SearchString, args.CaseSensitive), JsonRequestBehavior.AllowGet);
-
+                    return RedirectToAction("Documento", "Documento");
             }
             //return Json("", JsonRequestBehavior.AllowGet);
             ViewBag.MyExplorer = operation;

@@ -98,7 +98,7 @@ namespace GESTADv2.Controllers
                 unitOfWork = new UnitOfWork(_context);
                 unitOfWork.Nivel1.Add(obj);
                 unitOfWork.Complete();
-                string path = Path.Combine(Server.MapPath("~/Gestad"),obj.nombreN);
+                string path = Path.Combine("C:/Gestad", obj.nombreN);
                 Directory.CreateDirectory(path);
                 return RedirectToAction("AreaDoc");
             }
@@ -136,6 +136,8 @@ namespace GESTADv2.Controllers
                     _context.Configuration.ValidateOnSaveEnabled = false;
 
                     unitOfWork.Complete();
+
+                    string path = Path.Combine("C:/Gestad", obj.nombreN);
 
                     return RedirectToAction("AreaDoc");
                 }

@@ -11,7 +11,7 @@ namespace GESTADv2.Controllers
     {
         public ActionResult Index()
         {
-            string path = Path.Combine(Server.MapPath("~/Gestad"));
+            string path = Path.Combine("C:/Gestad");
             Directory.CreateDirectory(path);
             return View();
         }

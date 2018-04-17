@@ -15,7 +15,7 @@ namespace GESTADv2.Controllers
         UnitOfWork unitOfWork;
         BDContext _context;
         // GET: AreaDocumento
-        public ActionResult AreaDoc(List<Nivel2> obj, int? pagina)
+        public ActionResult AreaDoc(List<Nivel5> obj, int? pagina)
         {
             _context = new BDContext();
             unitOfWork = new UnitOfWork(_context);
@@ -107,7 +107,7 @@ namespace GESTADv2.Controllers
                 var n3 = unitOfWork.Nivel3.Get(Int32.Parse(n4.nivel3));
                 var n2 = unitOfWork.Nivel2.Get(Int32.Parse(n3.nivel2));
                 var n1 = unitOfWork.Nivel1.Get(Int32.Parse(n2.nivel1));
-                string path = Path.Combine(Server.MapPath("~/Gestad"), n1.nombreN, n2.nombreN, n3.nombreN, n4.nombreN, obj.nombreN);
+                string path = Path.Combine("C:/Gestad", n1.nombreN, n2.nombreN, n3.nombreN, n4.nombreN, obj.nombreN);
                 Directory.CreateDirectory(path);
                 return RedirectToAction("AreaDoc");
             }
@@ -155,7 +155,7 @@ namespace GESTADv2.Controllers
                     var n3 = unitOfWork.Nivel3.Get(Int32.Parse(n4.nivel3));
                     var n2 = unitOfWork.Nivel2.Get(Int32.Parse(n3.nivel2));
                     var n1 = unitOfWork.Nivel1.Get(Int32.Parse(n2.nivel1));
-                    string path = Path.Combine(Server.MapPath("~/Gestad"), n1.nombreN, n2.nombreN, n3.nombreN, n4.nombreN, obj.nombreN);
+                    string path = Path.Combine("C:/Gestad", n1.nombreN, n2.nombreN, n3.nombreN, n4.nombreN, obj.nombreN);
                     Directory.CreateDirectory(path);
 
                     return RedirectToAction("AreaDoc");

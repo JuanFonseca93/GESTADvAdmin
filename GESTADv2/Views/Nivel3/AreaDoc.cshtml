@@ -3,7 +3,7 @@
 
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
-    ViewBag.Title = "AreaDoc";
+    ViewBag.Title = "Nivel 3";
 }
 
 <h2>Areas</h2>
@@ -13,7 +13,7 @@
     @using (Html.BeginForm("BuscarAreaD", "Nivel3", FormMethod.Get))
     {
         <p>
-            Buscar usuario: @Html.TextBox("nombre")
+            Buscar nivel 3: @Html.TextBox("nombre")
             <input type="submit" value="Buscar" />
         </p>
     }
@@ -22,7 +22,7 @@
     @using (Html.BeginForm("AreaDoc", "Nivel3", FormMethod.Get))
     {
         <p>
-            <input type="submit" value="Ver lista" class="btn btn-primary" />
+            <input type="submit" value="Lista" class="btn btn-primary" />
         </p>
     }
 
@@ -32,7 +32,7 @@
 
 @using (Html.BeginForm("CrearAreaD", "Nivel3", FormMethod.Get))
 {
-    <input type="submit" value="Nueva Area" class="btn btn-primary" />
+    <input type="submit" value="Nuevo nivel 3" class="btn btn-primary" />
 }
 <br /><br />
 <table class="table">
