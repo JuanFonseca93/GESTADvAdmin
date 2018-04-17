@@ -32,7 +32,7 @@ namespace Core.Dominio
         public string generoUsuario { get; set; }
 
         [Required(ErrorMessage = "Campo obligatorio")]
-        [RegularExpression(@"^[A-Z0-9]{10}",ErrorMessage ="Formato de CURP incorrecto")]
+        [RegularExpression(@"/^.*(?=.{18})(?=.*[0-9])(?=.*[A-ZÑ]).*$", ErrorMessage = "Formato de CURP incorrecto")]
         public string curpUsuario { get; set; }
 
         [Required(ErrorMessage = "Campo obligatorio")]

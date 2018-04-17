@@ -147,8 +147,15 @@ namespace GESTADv2.Controllers
         public ActionResult ActionCrearUsuario(Usuario obj)
         {
             obj.Estatus = 1;
-
-            if (ModelState.IsValid)
+            var ob = 1;
+            foreach (var nusuario in unitOfWork.Usuarios.GetAll())
+            {
+                if (nusuario.correoUsuario.Equals(obj.correoUsuario) || nusuario.curpUsuario.Equals(obj.curpUsuario))
+                {
+                    ob++;
+                }
+            }
+            if (ModelState.IsValid && ob == 1)
             {
                 _context = new BDContext();
                 unitOfWork = new UnitOfWork(_context);
